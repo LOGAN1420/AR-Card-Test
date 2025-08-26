@@ -7,7 +7,7 @@
   <body>
     <a-scene mindar-image="imageTargetSrc: ./Card.mind; filterMinCF:0.01; filterBeta: 100" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false",>
       <a-assets>        
-        <a-asset-item id="logo" src="./Model/Worley-Logo.glb"></a-asset-item>
+        <a-asset-item id="logo" src="./Model/WorleyLogo.glb"></a-asset-item>
         <img id="call" src="./Icons/Phone.png"></img>
         <img id="mail" src="./Icons/Mail.png"></img>
         <img id="site" src="./Icons/Site.png"></img>
@@ -17,7 +17,7 @@
       <a-entity mindar-image-target="targetIndex: 0">
         <a-light type="ambient" color="#444" intensity="1"></a-light>
         <a-gltf-model rotation="90 0 0 " position="0 0 0" scale="0.1 0.1 0.1" src="#logo"></a-gltf-model>
-        <a-circle color="white" radius="0.1" position="1 0 0"></a-circle>
+        <a-circle color="white" radius="0.05" position="1 0 0"></a-circle>
         <a-image src="#call" position="-1 0.5 0"></a-image>
         <a-image src="#mail" position="-0.5 0.5 0"></a-image>
         <a-image src="#site" position="0.5 0.5 0"></a-image>
