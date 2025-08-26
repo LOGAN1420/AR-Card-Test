@@ -13,6 +13,16 @@
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       <a-entity mindar-image-target="targetIndex: 0">
         <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="0.005 0.005 0.005" src="#logo"></a-gltf-model>
+        <a-circle width="0.5" height="0.5" position="1 0 0" rotation="0 0 0" color="#FF0000"></a-circle>
+        <a-plane position="0 -0.5 0" width="1" height="0.3" color="#333333">
+          <a-text value="Website" align="center" position="0 0 0.01" color="white" width="5" href="https://example.com" onclick="window.open('https://example.com', '_blank')"></a-text>
+        </a-plane>
+        <a-plane position="-0.4 -0.5 0" width="0.3" height="0.3" color="#4267B2">
+          <a-text value="FB" align="center" position="0 0 0.01" color="white" width="5" href="https://facebook.com" onclick="window.open('https://facebook.com', '_blank')"></a-text>
+        </a-plane>
+        <a-plane position="0.4 -0.5 0" width="0.3" height="0.3" color="#1DA1F2">
+          <a-text value="Twitter" align="center" position="0 0 0.01" color="white" width="5" href="https://twitter.com" onclick="window.open('https://twitter.com', '_blank')"></a-text>
+        </a-plane>
       </a-entity>
     </a-scene>
   </body>
