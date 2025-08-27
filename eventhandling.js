@@ -32,6 +32,7 @@ function log(msg) {
 
       //button pop animation 
       Buttons.forEach((btn, i) => {
+        log("Button " + i + " found");
         setTimeout(() => {
           btn.emit("pop");
           log("Button " + i + " popped");
