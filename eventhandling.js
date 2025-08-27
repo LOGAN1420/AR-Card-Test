@@ -65,8 +65,7 @@ function log(msg) {
           to: "0 360 0",
           dur: 5000,
           easing: "linear", 
-          loop: true,
-          dir: "alternate"
+          loop: true
         });
       });
     });
