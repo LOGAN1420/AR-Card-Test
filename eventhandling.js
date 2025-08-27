@@ -34,6 +34,7 @@ function log(msg) {
       Buttons.forEach((btn, i) => {
         setTimeout(() => {
           btn.emit("pop");
+          log("Button " + i + " popped");
         }, i * 300); // 300ms delay between each
       });
   
