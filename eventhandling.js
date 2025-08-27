@@ -8,7 +8,7 @@ function log(msg) {
   
   window.addEventListener("DOMContentLoaded", () => {
     const sceneEl = document.querySelector("a-scene");
-    const logoModel = document.querySelector("#logoModel");
+    const logoModel = document.querySelector("#logo");
   
     // AR system events
     sceneEl.addEventListener("loaded", () => {
@@ -78,11 +78,11 @@ function log(msg) {
   
     siteBtn.addEventListener("click", () => {
       log("Site clicked");
-      window.location.href = "https://worlyventure.com";
+      window.location.href = "https://worleyventure.com";
     });
   
     pinBtn.addEventListener("click", () => {
       log("Pin clicked");
-      window.location.href = "https://worlyventure.com";
+      window.location.href = "https://maps.app.goo.gl/qetcCErj4JorJ8Z26";
     });
   });
