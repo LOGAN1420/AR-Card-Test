@@ -9,6 +9,12 @@ function log(msg) {
   window.addEventListener("DOMContentLoaded", () => {
     const sceneEl = document.querySelector("a-scene");
     const logoModel = document.querySelector("#logo");
+    const Buttons = {
+      callBtn: document.querySelector("#callBtn"),
+      mailBtn: document.querySelector("#mailBtn"),
+      siteBtn: document.querySelector("#siteBtn"),
+      pinBtn: document.querySelector("#pinBtn")
+    }
   
     // AR system events
     sceneEl.addEventListener("loaded", () => {
@@ -23,12 +29,19 @@ function log(msg) {
     const target = sceneEl.querySelector("[mindar-image-target]");
     target.addEventListener("targetFound", () => {
       log("Target Found!");
+
+      //button pop animation 
+      Buttons.forEach((btn, i) => {
+        setTimeout(() => {
+          btn.emit("pop");
+        }, i * 300); // 300ms delay between each
+      });
   
       // Scale up animation
       logoModel.setAttribute("animation__scale", {
         property: "scale",
         to: "0.15 0.15 0.15",
-        dur: 1000,
+        dur: 1500,
         easing: "easeOutElastic"
       });
   
@@ -36,7 +49,7 @@ function log(msg) {
         log("Scale complete → Moving left...");
         logoModel.setAttribute("animation__move", {
           property: "position",
-          to: "-0.5 0 0",
+          to: "-1 0 0",
           dur: 1000,
           easing: "easeInOutSine"
         });
@@ -58,30 +71,29 @@ function log(msg) {
       logoModel.removeAttribute("animation-mixer");
       logoModel.setAttribute("scale", "0 0 0");
       logoModel.setAttribute("position", "0 0 0");
+
+      Buttons.forEach(btn => {
+        btn.setAttribute("scale", "0 0 0");
+      });
     });
   
     // Buttons
-    const callBtn = document.querySelector("#callBtn");
-    const mailBtn = document.querySelector("#mailBtn");
-    const siteBtn = document.querySelector("#siteBtn");
-    const pinBtn = document.querySelector("#pinBtn");
-  
-    callBtn.addEventListener("click", () => {
+    Buttons.callBtn.addEventListener("click", () => {
       log("Call clicked");
       window.location.href = "tel:7358063881";
     });
   
-    mailBtn.addEventListener("click", () => {
+    Buttons.mailBtn.addEventListener("click", () => {
       log("Mail clicked");
       window.location.href = "mailto:contact@worlyventure.com";
     });
   
-    siteBtn.addEventListener("click", () => {
+    Buttons.siteBtn.addEventListener("click", () => {
       log("Site clicked");
       window.location.href = "https://worleyventure.com";
     });
   
-    pinBtn.addEventListener("click", () => {
+    Buttons.pinBtn.addEventListener("click", () => {
       log("Pin clicked");
       window.location.href = "https://maps.app.goo.gl/qetcCErj4JorJ8Z26";
     });
