@@ -3,7 +3,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
-    <script>
+
+    <script> //For Click events
       document.addEventListener("DOMContentLoaded", function() {
 	    const sceneEl = document.querySelector('a-scene');
 	    let arSystem;
@@ -16,37 +17,97 @@
 	    const pin = document.querySelector('#pin');
 	    call.addEventListener('click', () => {
         console.log("call");
+        window.location.href = "tel:7358063881";
 	    });
 	    mail.addEventListener('click', () => {
         console.log("mail");
+        window.location.href = "mailto:contact@worlyventure.com";
 	    });
 	    site.addEventListener('click', () => {
         console.log("site");
+        window.location.href = "https://worlyventure.com";
 	    });
 	    pin.addEventListener('click', () => {
         console.log("pin");
+        window.location.href = "https://worlyventure.com";
 	    });
+      });
+    </script>
+    //animation
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+      const sceneEl = document.querySelector("a-scene");
+      const logoModel = document.querySelector("#logoModel");
+
+      // When AR target is found
+      const target = sceneEl.querySelector("[mindar-image-target]");
+      target.addEventListener("targetFound", () => {
+      console.log("Target Found!");
+
+      // Step 1: Scale up
+      logoModel.setAttribute("animation__scale", {
+       property: "scale",
+       to: "0.15 0.15 0.15", // final size
+       dur: 1000,
+       easing: "easeOutElastic"
+      });
+
+      // When scale animation ends → move
+      logoModel.addEventListener("animationcomplete__scale", () => {
+      // Step 2: Move left
+      logoModel.setAttribute("animation__move", {
+        property: "position",
+        to: "-0.5 0 0", // shift left on X
+        dur: 1000,
+        easing: "easeInOutSine"
+      });
+      });
+      
+      // When move ends → play idle animation from GLB
+      logoModel.addEventListener("animationcomplete__move", () => {
+      console.log("Play idle animation");
+      logoModel.setAttribute("animation-mixer", {
+        clip: "Idle", // name of the animation inside GLB
+        loop: "repeat"
+      });
+      });
+      });
+
+      target.addEventListener("targetLost", () => {
+      console.log("Target Lost!");
+      // Optional: Reset model
+      logoModel.removeAttribute("animation__scale");
+      logoModel.removeAttribute("animation__move");
+      logoModel.removeAttribute("animation-mixer");
+      logoModel.setAttribute("scale", "0 0 0");
+      logoModel.setAttribute("position", "0 0 0");
+      });
       });
     </script>
   </head>
   <body>
     <a-scene mindar-image="imageTargetSrc: ./Card.mind; filterMinCF:0.01; filterBeta: 100" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false",>
+      <!-- Assets Preloading -->
       <a-assets>        
-        <a-asset-item id="logo" src="./Model/WorleyLogo.glb"></a-asset-item>
+        <a-asset-item id="logoModel" src="./Model/WorleyLogo.glb"></a-asset-item>
         <img id="call" src="./Icons/Phone.png"></img>
         <img id="mail" src="./Icons/Mail.png"></img>
         <img id="site" src="./Icons/Site.png"></img>
         <img id="pin" src="./Icons/Location.png"></img>
       </a-assets>
+
+      <!-- Camera -->
       <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: ${customFields.libVersion}; objects: .clickable"></a-camera>
+
+      <!-- AR Entity --> // content that showed when the target found
       <a-entity mindar-image-target="targetIndex: 0">
         <a-light type="ambient" color="#fff" intensity="5"></a-light>
-        <a-gltf-model rotation="90 0 0 " position="0 0 0" scale="0.15 0.15 0.15" src="#logo"></a-gltf-model>
+        <a-gltf-model rotation="90 0 0 " position="0 0 0" scale="0.15 0.15 0.15" src="#logoModel"></a-gltf-model>
         <a-circle color="white" radius="0.3" position="1 0 0"></a-circle>
-        <a-image id="call" src="#call" position="-0.4 -0.4 0" width="0.2" height="0.2" class="clickable"></a-image>
-        <a-image id="mail" src="#mail" position="-0.1 -0.4 0" width="0.2" height="0.2" class="clickable"></a-image>
-        <a-image id="site" src="#site" position="0.1 -0.4 0" width="0.2" height="0.2" class="clickable"></a-image>
-        <a-image id="pin" src="#pin" position="0.4 -0.4 0" width="0.2" height="0.2" class="clickable"></a-image>
+        <a-image id="call" src="#call" position="-0.45 -0.45 0" width="0.2" height="0.2" class="clickable"></a-image>
+        <a-image id="mail" src="#mail" position="-0.15 -0.45 0" width="0.2" height="0.2" class="clickable"></a-image>
+        <a-image id="site" src="#site" position="0.15 -0.45 0" width="0.2" height="0.2" class="clickable"></a-image>
+        <a-image id="pin" src="#pin" position="0.45 -0.45 0" width="0.2" height="0.2" class="clickable"></a-image>
       </a-entity>
     </a-scene>
   </body>
