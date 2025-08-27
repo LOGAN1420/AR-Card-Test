@@ -64,7 +64,7 @@ function log(msg) {
           property: "rotation",
           to: "0 360 0",
           dur: 5000,
-          easing: "linear", // replace with actual GLB animation name
+          easing: "linear", 
           loop: true,
           dir: "alternate"
         });
