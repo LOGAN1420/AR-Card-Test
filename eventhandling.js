@@ -65,7 +65,8 @@ function log(msg) {
           to: "0 360 0",
           dur: 5000,
           easing: "linear", // replace with actual GLB animation name
-          loop: "repeat"
+          loop: true,
+          dir: "alternate"
         });
       });
     });
@@ -77,6 +78,7 @@ function log(msg) {
       logoModel.removeAttribute("animation-mixer");
       logoModel.setAttribute("scale", "0 0 0");
       logoModel.setAttribute("position", "0 0 0");
+      logoModel.setAttribute("rotation", "0 0 0");
 
       Buttons.forEach(btn => {
         btn.setAttribute("scale", "0 0 0");
