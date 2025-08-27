@@ -61,27 +61,27 @@ function log(msg) {
     });
   
     // Buttons
-    const call = document.querySelector("#call");
-    const mail = document.querySelector("#mail");
-    const site = document.querySelector("#site");
-    const pin = document.querySelector("#pin");
+    const callBtn = document.querySelector("#callBtn");
+    const mailBtn = document.querySelector("#mailBtn");
+    const siteBtn = document.querySelector("#siteBtn");
+    const pinBtn = document.querySelector("#pinBtn");
   
-    call.addEventListener("click", () => {
+    callBtn.addEventListener("click", () => {
       log("Call clicked");
       window.location.href = "tel:7358063881";
     });
   
-    mail.addEventListener("click", () => {
+    mailBtn.addEventListener("click", () => {
       log("Mail clicked");
       window.location.href = "mailto:contact@worlyventure.com";
     });
   
-    site.addEventListener("click", () => {
+    siteBtn.addEventListener("click", () => {
       log("Site clicked");
       window.location.href = "https://worlyventure.com";
     });
   
-    pin.addEventListener("click", () => {
+    pinBtn.addEventListener("click", () => {
       log("Pin clicked");
       window.location.href = "https://worlyventure.com";
     });

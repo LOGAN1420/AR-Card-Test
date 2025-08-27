@@ -22,7 +22,7 @@
         padding: 5px;
       }
     </style>
-    
+
   </head>
   <body>
 
@@ -32,10 +32,10 @@
       <!-- Assets Preloading -->
       <a-assets>        
         <a-asset-item id="logoModel" src="./Model/WorleyLogo.glb"></a-asset-item>
-        <img id="call" src="./Icons/Phone.png"></img>
-        <img id="mail" src="./Icons/Mail.png"></img>
-        <img id="site" src="./Icons/Site.png"></img>
-        <img id="pin" src="./Icons/Location.png"></img>
+        <img id="callicon" src="./Icons/Phone.png"></img>
+        <img id="mailicon" src="./Icons/Mail.png"></img>
+        <img id="siteicon" src="./Icons/Site.png"></img>
+        <img id="pinicon" src="./Icons/Location.png"></img>
       </a-assets>
 
       <!-- Camera -->
@@ -46,10 +46,10 @@
         <a-light type="ambient" color="#fff" intensity="5"></a-light>
         <a-gltf-model rotation="90 0 0 " position="0 0 0" scale="0 0 0" src="#logoModel"></a-gltf-model>
         <a-circle color="white" radius="0.3" position="1 0 0"></a-circle>
-        <a-image id="call" src="#call" position="-0.45 -0.45 0" width="0.2" height="0.2" class="clickable"></a-image>
-        <a-image id="mail" src="#mail" position="-0.15 -0.45 0" width="0.2" height="0.2" class="clickable"></a-image>
-        <a-image id="site" src="#site" position="0.15 -0.45 0" width="0.2" height="0.2" class="clickable"></a-image>
-        <a-image id="pin" src="#pin" position="0.45 -0.45 0" width="0.2" height="0.2" class="clickable"></a-image>
+        <a-image id="callBtn" src="#callicon" position="-0.45 -0.45 0" width="0.2" height="0.2" class="clickable"></a-image>
+        <a-image id="mailBtn" src="#mailicon" position="-0.15 -0.45 0" width="0.2" height="0.2" class="clickable"></a-image>
+        <a-image id="siteBtn" src="#siteicon" position="0.15 -0.45 0" width="0.2" height="0.2" class="clickable"></a-image>
+        <a-image id="pinBtn" src="#pinicon" position="0.45 -0.45 0" width="0.2" height="0.2" class="clickable"></a-image>
       </a-entity>
     </a-scene>
   </body>
