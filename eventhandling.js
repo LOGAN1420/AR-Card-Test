@@ -60,8 +60,11 @@ function log(msg) {
   
       logoModel.addEventListener("animationcomplete__move", () => {
         log("Move complete → Playing idle animation");
-        logoModel.setAttribute("animation-mixer", {
-          clip: "*", // replace with actual GLB animation name
+        logoModel.setAttribute("animation__rotate", {
+          property: "rotation",
+          to: "0 360 0",
+          dur: 5000,
+          easing: "linear", // replace with actual GLB animation name
           loop: "repeat"
         });
       });
