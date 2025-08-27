@@ -30,6 +30,7 @@ function log(msg) {
     target.addEventListener("targetFound", () => {
       log("Target Found!");
 
+      /*
       //button pop animation 
       Buttons.forEach((btn, i) => {
         log("Button " + i + " found");
@@ -37,7 +38,7 @@ function log(msg) {
           btn.emit("pop");
           log("Button " + i + " popped");
         }, i * 300); // 300ms delay between each
-      });
+      });*/
   
       // Scale up animation
       logoModel.setAttribute("animation__scale", {
